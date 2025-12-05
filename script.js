@@ -119,15 +119,14 @@ function renderCard(imageEl, nameEl, subtitleEl, searchesEl, item, reveal) {
 function setImage(wrapper, item) {
   wrapper.innerHTML = '';
   const img = document.createElement('img');
-  if (!item.imagen) {
-    wrapper.textContent = item.nombre.charAt(0).toUpperCase();
-    return;
-  }
-  img.src = item.imagen;
+  const placeholder = 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1200&q=80';
+
+  img.src = item.imagen || placeholder;
   img.alt = item.nombre;
   img.onerror = () => {
-    wrapper.textContent = item.nombre.charAt(0).toUpperCase();
-    img.remove();
+    if (img.dataset.fallbackApplied) return;
+    img.dataset.fallbackApplied = 'true';
+    img.src = placeholder;
   };
   wrapper.appendChild(img);
 }
