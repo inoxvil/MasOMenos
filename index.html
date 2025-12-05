@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Higher or Lower - Búsquedas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="scoreboard">
+      <div class="logo">Higher or Lower</div>
+      <div class="scores">
+        <span>Puntuación: <strong id="current-score">0</strong></span>
+        <span>Mejor: <strong id="best-score">0</strong></span>
+      </div>
+    </header>
+
+    <main class="game-area">
+      <div class="card" id="left-card">
+        <div class="image" id="left-image"></div>
+        <div class="info">
+          <p class="subtitle" id="left-subtitle"></p>
+          <h2 id="left-name"></h2>
+          <p class="searches" id="left-searches"></p>
+        </div>
+      </div>
+
+      <div class="versus">¿Tiene más o menos búsquedas?</div>
+
+      <div class="card" id="right-card">
+        <div class="image" id="right-image"></div>
+        <div class="info">
+          <p class="subtitle" id="right-subtitle"></p>
+          <h2 id="right-name"></h2>
+          <p class="searches" id="right-searches">??? búsquedas</p>
+        </div>
+        <div class="actions">
+          <button id="lower-btn" class="btn secondary">Menos</button>
+          <button id="higher-btn" class="btn primary">Más</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="game-over">
+    <div class="modal-content">
+      <h2>¡Fin del juego!</h2>
+      <p class="final-score">Puntuación final: <strong id="final-score">0</strong></p>
+      <p class="best-score">Mejor puntuación: <strong id="best-score-final">0</strong></p>
+      <div class="modal-actions">
+        <button id="restart-btn" class="btn primary">Jugar de nuevo</button>
+        <button id="share-btn" class="btn secondary">Compartir puntuación</button>
+      </div>
+      <p class="share-feedback" id="share-feedback"></p>
+    </div>
+  </div>
+
+  <audio id="sound-correct" src="sounds/correct.wav" preload="auto"></audio>
+  <audio id="sound-wrong" src="sounds/wrong.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
